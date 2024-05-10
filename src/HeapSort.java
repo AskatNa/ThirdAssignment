@@ -1,5 +1,5 @@
 public class HeapSort {
-    public void sort(int[] arr) {
+    public static void sort(int[] arr) {
         int n = arr.length;
         for (int i = n / 2 - 1; i >= 0; i--)
             Heapify(arr, n, i);
@@ -10,16 +10,14 @@ public class HeapSort {
             Heapify(arr, i, 0);
         }
     }
-    void Heapify(int[] arr, int n, int i) {
+    public static void Heapify(int[] arr, int n, int i) {
         int largest = i;
         int left = 2 * i + 1;
         int right = 2 * i + 2;
         if (left < n && arr[left] > arr[largest])
             largest = left;
-
         if (right < n && arr[right] > arr[largest])
             largest = right;
-
         if (largest != i) {
             int swap = arr[i];
             arr[i] = arr[largest];
@@ -27,9 +25,8 @@ public class HeapSort {
             Heapify(arr, n, largest);
         }
     }
-    static void printArray(int[] arr) {
-        int n = arr.length;
-        for (int i = 0; i < n; i++)
+    public static void printArray(int[] arr) {
+        for (int i = 0; i < arr.length; i++)
             System.out.print(arr[i] + " ");
         System.out.println();
     }
